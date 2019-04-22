@@ -1,129 +1,114 @@
-<!---------------------------------------------------------------------------------------------------------------->
-<!---------------------------------------------------------------------------------------------------------------->
-<!--                                                                                                            -->
-<!--   Document created by:  Julian Bründl, Léon Dawert, Bedredin Ouelhazi                                      -->
-<!--                                                                                                            -->
-<!--   This document displays the profile page of the user                                                      -->
-<!--                                                                                                            -->
-<!---------------------------------------------------------------------------------------------------------------->
-<!---------------------------------------------------------------------------------------------------------------->
 <!DOCTYPE html>
 <?php
     // Start a session
     session_start();
 ?>
 <html lang='en'>
-    <head>
-        <meta charset='utf-8'>
-        <meta name='theme-color' content='#171819'>
-        <title>Web-Shop</title>
-        <link id='favicon' rel='icon' type='' href=''/>
-        <!-- This website includes -->
-        <!-- External -->
-        <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-        <!-- Internal -->
-        <link href='/millionAIR/css/general.css' media='screen' rel='stylesheet' type='text/css'/>
-        <link href='/millionAIR/css/font.css' media='screen' rel='stylesheet' type='text/css'/>
-        <link href='/millionAIR/css/form.css' media='screen' rel='stylesheet' type='text/css'/>
-        <link href='/millionAIR/css/article.css' media='screen' rel='stylesheet' type='text/css'/>
-        <script type='text/javascript' src='/millionAIR/js/menu.js'></script>
-        <!-- End websites includes -->
-    </head>
-    <body>
-      <div id='titleBar'>
-      <div id='title_menu_button' onclick='toggleMenu()'>
-        <i class="fas fa-caret-right button_menu"></i>
+  <head>
+      <meta charset='utf-8'>
+      <meta name='theme-color' content='#171819'>
+      <title>millionAIR</title>
+      <link id='favicon' rel='icon' type='' href=''/>
+      <!-- This website includes -->
+      <!-- External -->
+      <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+      <!-- Internal -->
+      <link href='../css/general.css' media='screen' rel='stylesheet' type='text/css'/>
+      <link href='../css/font.css' media='screen' rel='stylesheet' type='text/css'/>
+      <link href='../css/form.css' media='screen' rel='stylesheet' type='text/css'/>
+      <!-- End websites includes -->
+  </head>
+  <body>
+    <div id='titleBar'>
+      <div id='title_categories'>
+        <form class="title-categories" action="/millionAIR/index.php?category=Mods" method="post">
+          <input class='button button_title' type="submit" name="Mods" value="Mods">
+        </form>
+        <form class="title-categories" action="/millionAIR/index.php?category=Atomizers" method="post">
+          <input class='button button_title' type="submit" name="Atomizers" value="Atomizers">
+        </form>
+        <form class="title-categories" action="/millionAIR/index.php?category=Juice" method="post">
+          <input class='button button_title' type="submit" name="Juice" value="Juice">
+        </form>
+        <form class="title-categories" action="/millionAIR/index.php?category=Aroma" method="post">
+          <input class='button button_title' type="submit" name="Aroma" value="Aroma">
+        </form>
+        <form class="title-categories" action="/millionAIR/index.php?category=DIY" method="post">
+          <input class='button button_title' type="submit" name="DIY" value="DIY">
+        </form>
+        <form class="title-categories" action="/millionAIR/index.php?category=All" method="post">
+          <input class='button button_title' type="submit" name="all" value="All">
+        </form>
       </div>
-      <div id='title_categories' class='hide'>
-          <form class="title-categories" action="/millionAIR/index.php?category=Mods" method="post">
-            <input class='button button_title' type="submit" name="Mods" value="Mods">
-          </form>
-          <form class="title-categories" action="/millionAIR/index.php?category=Atomizers" method="post">
-            <input class='button button_title' type="submit" name="Atomizers" value="Atomizers">
-          </form>
-          <form class="title-categories" action="/millionAIR/index.php?category=Juice" method="post">
-            <input class='button button_title' type="submit" name="Juice" value="Juice">
-          </form>
-          <form class="title-categories" action="/millionAIR/index.php?category=Aroma" method="post">
-            <input class='button button_title' type="submit" name="Aroma" value="Aroma">
-          </form>
-          <form class="title-categories" action="/millionAIR/index.php?category=DIY" method="post">
-            <input class='button button_title' type="submit" name="DIY" value="DIY">
-          </form>
-          <form class="title-categories" action="/millionAIR/index.php?category=All" method="post">
-            <input class='button button_title' type="submit" name="all" value="All">
-          </form>
-        </div>
-        <span class='font_title'><a href='/millionAIR/index.php'>millionAIR</a></span>
-        <div id='title_profile'>
-          <!-- Logout / Register Template -->
+      <span class='font_title'><a href='/millionAIR/index.php'>millionAIR</a></span>
+      <div id='title_profile'>
+        <!-- Logout / Register Template -->
+        <?php
+          if (empty($_SESSION['userID'])) {
+            echo "  <form class='title_profile_align' action='/millionAIR/sites/login.php' method='post'>
+                      <input class='button button_title' type='submit' name='login' value='Login'>
+                    </form>
+                    <form class='title_profile_align' action='/millionAIR/sites/register.php' method='post'>
+                      <input class='button button_title' type='submit' name='register' value='Register'>
+                    </form>";
+          } else {
+            echo "  <form class='title_profile_align' action='/millionAIR/sites/logout.php' method='post'>
+                      <input class='button button_title' type='submit' name='logout' value='Logout'>
+                    </form>
+                    <form class='title_profile_align' action='/millionAIR/sites/profile.php' method='post'>
+                      <input class='button button_title' type='submit' name='profile' value='Profile'>
+                    </form>";
+          }
+        ?>
+        <form class='title_profile_align' action='/millionAIR/sites/basket.php' method='post'>
+          <input class='button button_title' type='submit' name='basket' value='Basket'>
+        </form>
+        <?php
+          if (!empty($_SESSION['admin']) && $_SESSION['admin']) {
+            echo "  <form class='title_profile_align' action='/millionAIR/sites/admin.php' method='post'>
+                      <input class='button button_title' type='submit' name='logout' value='Admin'>
+                    </form>";
+          }
+        ?>
+    </div>
+    </div>
+      <!--<div class='spacer_top'></div>-->
+      <div id='content'>
+        <div class='profile_form'>
           <?php
+            // Check for active session
             if (empty($_SESSION['userID'])) {
-              echo "  <form class='title_profile_align' action='/millionAIR/sites/login.php' method='post'>
-                        <input class='button button_title' type='submit' name='login' value='Login'>
-                      </form>
-                      <form class='title_profile_align' action='/millionAIR/sites/register.php' method='post'>
-                        <input class='button button_title' type='submit' name='register' value='Register'>
+              echo "  <form action='/millionAIR/sites/login.php' method='post'>
+                        You are not logged in!<br>
+                        Please login to access your profile data:
+                        <input type='submit' class='button' value='Login'>
                       </form>";
             } else {
-              echo "  <form class='title_profile_align' action='/millionAIR/sites/logout.php' method='post'>
-                        <input class='button button_title' type='submit' name='logout' value='Logout'>
-                      </form>
-                      <form class='title_profile_align' action='/millionAIR/sites/profile.php' method='post'>
-                        <input class='button button_title' type='submit' name='profile' value='Profile'>
-                      </form>";
-            }
-          ?>
-          <form class='title_profile_align' action='/millionAIR/sites/basket.php' method='post'>
-            <input class='button button_title' type='submit' name='basket' value='Basket'>
-          </form>
-          <?php
-            if (!empty($_SESSION['admin']) && $_SESSION['admin']) {
-              echo "  <form class='title_profile_align' action='/millionAIR/sites/admin.php' method='post'>
-                        <input class='button button_title' type='submit' name='logout' value='Admin'>
-                      </form>";
-            }
-          ?>
-      </div>
-      </div>
-        <!--<div class='spacer_top'></div>-->
-        <div id='content'>
-          <div class='profile_form'>
-            <?php
-              // Check for active session
-              if (empty($_SESSION['userID'])) {
-                echo "  <form action='/millionAIR/sites/login.php' method='post'>
-                          You are not logged in!<br>
-                          Please login to access your profile data:
-                          <input type='submit' class='button' value='Login'>
-                        </form>";
-              } else {
-                // Start connection to database
-                $mysqli = new mysqli("localhost", "root","", "millionAIR");//connect to database
-                if($mysqli->connect_error) {
-                  echo ("Fehler ". mysqli_connect_error());
-                  exit();
-                }
-                $userID = $_SESSION["userID"];
-                $pwindb = $mysqli->query("SELECT username, firstname, lastname, street, city, postal_code, password FROM users WHERE userID = {$userID}"); //sql query
-                $fetch = mysqli_fetch_array($pwindb); //save result of query to array
-                $gotdata = array($fetch['username'], $fetch['firstname'], $fetch['lastname'], $fetch['street'], $fetch['city'], $fetch['postal_code'], $fetch['password']);
-                echo "  <form action='profile_change.php' method='post'>
-                          Please insert your login credentials:<br><br>
-                          <span>User Name: <input type='text' name='username' placeholder='User Name' value='$gotdata[0]' autocomplete='off'></span>
-                          First Name: <input type='text' name='firstname' placeholder='First Name' value='$gotdata[1]' autocomplete='off'>
-                          Last Name:<input type='text' name='lastname' placeholder='Last Name' value='$gotdata[2]' autocomplete='off'>
-                          Street: <input type='text' name='street' placeholder='Street' value='$gotdata[3]' autocomplete='off'>
-                          City: <input type='text' name='city' placeholder='City' value='$gotdata[4]' autocomplete='off'>
-                          Postal: <input type='text' name='postal_code' placeholder='Postal' value='$gotdata[5]' autocomplete='off'>
-                          Password: <input type='password' name='password' placeholder='New password' autocomplete='off'>
-                          <input type='password' name='password2' placeholder='Retype password' autocomplete='off'>
-                          <input type='submit' class='button' value='change'>
-                        </form>";
+              // Start connection to database
+              $mysqli = new mysqli("localhost", "root","", "millionAIR");//connect to database
+              if($mysqli->connect_error) {
+                echo ("Fehler ". mysqli_connect_error());
+                exit();
               }
-            ?>
-        </div>
+              $userID = $_SESSION["userID"];
+              $pwindb = $mysqli->query("SELECT username, firstname, lastname, street, city, postal_code, password FROM users WHERE userID = {$userID}"); //sql query
+              $fetch = mysqli_fetch_array($pwindb); //save result of query to array
+              $gotdata = array($fetch['username'], $fetch['firstname'], $fetch['lastname'], $fetch['street'], $fetch['city'], $fetch['postal_code'], $fetch['password']);
+              echo "  <form action='profile_change.php' method='post'>
+                        Please insert your login credentials:<br><br>
+                        <span>User Name: <input type='text' name='username' placeholder='User Name' value='$gotdata[0]' autocomplete='off'></span>
+                        First Name: <input type='text' name='firstname' placeholder='First Name' value='$gotdata[1]' autocomplete='off'>
+                        Last Name:<input type='text' name='lastname' placeholder='Last Name' value='$gotdata[2]' autocomplete='off'>
+                        Street: <input type='text' name='street' placeholder='Street' value='$gotdata[3]' autocomplete='off'>
+                        City: <input type='text' name='city' placeholder='City' value='$gotdata[4]' autocomplete='off'>
+                        Postal: <input type='text' name='postal_code' placeholder='Postal' value='$gotdata[5]' autocomplete='off'>
+                        Password: <input type='password' name='password' placeholder='New password' autocomplete='off'>
+                        <input type='password' name='password2' placeholder='Retype password' autocomplete='off'>
+                        <input type='submit' class='button' value='change'>
+                      </form>";
+            }
+          ?>
       </div>
-    </body>
+    </div>
+  </body>
 </html>

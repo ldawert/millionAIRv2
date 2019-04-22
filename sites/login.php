@@ -1,32 +1,20 @@
-<!---------------------------------------------------------------------------------------------------------------->
-<!---------------------------------------------------------------------------------------------------------------->
-<!--                                                                                                            -->
-<!--   Document created by:  Julian Bründl, Léon Dawert, Bedredin Ouelhazi                                      -->
-<!--                                                                                                            -->
-<!--   This document displays the login site                                                                    -->
-<!--                                                                                                            -->
-<!---------------------------------------------------------------------------------------------------------------->
-<!---------------------------------------------------------------------------------------------------------------->
 <!DOCTYPE html>
 <html lang='en'>
-    <?php
-      session_start();
-    ?>
+<?php
+  session_start();
+?>
     <head>
         <meta charset='utf-8'>
         <meta name='theme-color' content='#171819'>
-        <title>Web-Shop</title>
+        <title>millionAIR</title>
         <link id='favicon' rel='icon' type='' href=''/>
         <!-- This website includes -->
         <!-- External -->
         <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <!-- Internal -->
         <link href='/millionAIR/css/general.css' media='screen' rel='stylesheet' type='text/css'/>
         <link href='/millionAIR/css/font.css' media='screen' rel='stylesheet' type='text/css'/>
         <link href='/millionAIR/css/form.css' media='screen' rel='stylesheet' type='text/css'/>
-        <link href='/millionAIR/css/article.css' media='screen' rel='stylesheet' type='text/css'/>
-        <script type='text/javascript' src='/millionAIR/js/menu.js'></script>
         <!-- End websites includes -->
     </head>
     <body>
@@ -88,14 +76,14 @@
         <div id='content'>
           <div class='login_form'>
             <?php
-              if (empty($_SESSION['userID'])) {
+              if (empty($_SESSION['userID'])) {                                 // if user is not loggin in give him a form to log in
                 echo "  <form action='/millionAIR/sites/login_entry.php' method='post'>
                           Please insert your login credentials:
                           <input type='text' name='username' placeholder='Name' autocomplete='off' autofocus>
                           <input type='password' name='password' placeholder='Password' autocomplete='off'>
                           <input type='submit' class='button' value='login'>
                         </form>";
-              } else {
+              } else {                                                          // if user is logged in tell him 
                 echo "  <form action='/millionAIR/index.php' method='post'>
                           You are already logged in!
                           <input type='submit' class='button' value='continue shopping'>

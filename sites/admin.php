@@ -1,40 +1,24 @@
-<!---------------------------------------------------------------------------------------------------------------->
-<!---------------------------------------------------------------------------------------------------------------->
-<!--                                                                                                            -->
-<!--   Document created by:  Julian Bründl, Léon Dawert, Bedredin Ouelhazi                                      -->
-<!--                                                                                                            -->
-<!--   This document displays a site for the admin to edit the stock of products in the database                -->
-<!--                                                                                                            -->
-<!---------------------------------------------------------------------------------------------------------------->
-<!---------------------------------------------------------------------------------------------------------------->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <?php
-    session_start();
-  ?>
+<?php
+  session_start();
+?>
   <head>
-      <meta charset='utf-8'>
-      <meta name='theme-color' content='#171819'>
-      <title>Web-Shop</title>
-      <link id='favicon' rel='icon' type='' href=''/>
-      <!-- This website includes -->
-      <!-- External -->
-      <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-      <!-- Internal -->
-      <link href='/millionAIR/css/general.css' media='screen' rel='stylesheet' type='text/css'/>
-      <link href='/millionAIR/css/font.css' media='screen' rel='stylesheet' type='text/css'/>
-      <link href='/millionAIR/css/form.css' media='screen' rel='stylesheet' type='text/css'/>
-      <link href='/millionAIR/css/article.css' media='screen' rel='stylesheet' type='text/css'/>
-      <script type='text/javascript' src='/millionAIR/js/menu.js'></script>
-      <!-- End websites includes -->
+    <meta charset="utf-8">
+    <title>millionAIR</title>
+    <!-- This website includes -->
+    <!-- External -->
+    <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <!-- Internal -->
+    <link href='/millionAIR/css/general.css' media='screen' rel='stylesheet' type='text/css'/>
+    <link href='/millionAIR/css/font.css' media='screen' rel='stylesheet' type='text/css'/>
+    <link href='/millionAIR/css/form.css' media='screen' rel='stylesheet' type='text/css'/>
+    <link href='/millionAIR/css/article.css' media='screen' rel='stylesheet' type='text/css'/>
+    <!-- End websites includes -->
   </head>
   <body>
     <div id='titleBar'>
-      <div id='title_menu_button' onclick='toggleMenu()'>
-        <i class="fas fa-caret-right button_menu"></i>
-      </div>
-      <div id='title_categories' class='hide'>
+      <div id='title_categories'>
         <form class="title-categories" action="/millionAIR/index.php?category=Mods" method="post">
           <input class='button button_title' type="submit" name="Mods" value="Mods">
         </form>
@@ -84,15 +68,15 @@
       </div>
     </div>
     <?php
-      if (!empty($_SESSION['admin']) && $_SESSION['admin']) { //check if user has admin rights
-        $mysqli = new mysqli("localhost", "root","", "millionAIR");//connect to database
+      if (!empty($_SESSION['admin']) && $_SESSION['admin']) {                   //check if user has admin rights
+        $mysqli = new mysqli("localhost", "root","", "millionAIR");              //connect to database
   			if($mysqli->connect_error) {
   				echo ("Fehler ". mysqli_connect_error());
   				exit();
   			}
         echo "<div id='content'>";
-        $articles = $mysqli->query("SELECT * from item");
-        while ($article = $articles->fetch_array()) {
+        $articles = $mysqli->query("SELECT * from item");                       // get all items from databse
+        while ($article = $articles->fetch_array()) {                           // iterate over each item and create a field to edit its stock
           $name = $article['item'];
           $itemID = $article['itemID'];
           $stock = $article['stock'];
@@ -103,7 +87,7 @@
                                   <input type='submit' class='button button_title' name='submit' value='update'>
                                 </form></div>";
         }
-      } else {
+      } else {                                                                  // if user has no admin rights, reject him
         echo "<div class='spacer_top'></div>
                 <div id='content'>
                   <div class='login_form'>
