@@ -179,16 +179,16 @@ input[type='text']:focus, input[type='number']:focus, input[type='password']:foc
 /**************************************\
 \** Define styling of the admin form **/
 .admin-area {
-    width: 300px;
+  width: 300px;
 }
 
 .admin-item {
-    text-align: center;
-    margin: auto;
+  text-align: center;
+  margin: auto;
 }
 
 .admin-stock {
-    float: left;
+  float: left;
 }
 /**                                  **\
 \**************************************/
@@ -211,37 +211,9 @@ input[type='text']:focus, input[type='number']:focus, input[type='password']:foc
     bottom: 7px;
 }
 
-/*  Styling for the title of article prices  */
-.article_price {
-    float:left;
-    width: 50%;
-    font-size: 24px;
-    text-align: center;
-    border-right: 2px solid var(--color-bg);
-}
-
-.button_product {
-    /*float: right;*/
-    width: 160px;
-    height: 36px;
-    color: var(--color-text-content);
-    font-size: 18px;
-}
-
-/*  Styling for the title of article prices  */
-.text_product_amount {
-    float:left;
-    width: 160px;
-    padding: 0 10px;
-    font-size: 24px;
-    color: var(--color-text-content);
-    text-align: center;
-    border-right: 2px solid var(--color-bg);
-}
-
 .button_remove {
-    margin-left: 30px;
-    bottom: -1px;
+  margin-left: 30px;
+  bottom: -1px;
 }
 /**                                    **\
 \****************************************/
