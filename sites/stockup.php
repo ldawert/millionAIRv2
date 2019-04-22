@@ -1,3 +1,12 @@
+<!---------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------->
+<!--                                                                                                            -->
+<!--   Document created by:  Julian Bründl, Léon Dawert, Bedredin Ouelhazi                                      -->
+<!--                                                                                                            -->
+<!--   This document implements the function to log in to the website		                                        -->
+<!--                                                                                                            -->
+<!---------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <?php
@@ -20,7 +29,7 @@
       if ($updated) {
         header ('location:/millionAIR/sites/admin.php');                        // send user back to admin page
       } else {
-        echo "Failure with updating database";                                  // alert user with failure 
+        echo "Failure with updating database";                                  // alert user with failure
         exit();
       }
     ?>

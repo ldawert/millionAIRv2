@@ -1,3 +1,12 @@
+<!---------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------->
+<!--                                                                                                            -->
+<!--   Document created by:  Julian Bründl, Léon Dawert, Bedredin Ouelhazi                                      -->
+<!--                                                                                                            -->
+<!--   This document implements the function to log in to the website		                                        -->
+<!--                                                                                                            -->
+<!---------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------->
 <!DOCTYPE html>
 <html lang='en'>
 <?php
@@ -103,7 +112,7 @@
             <input class='button button_article button_remove' type='submit' name='submit' value='Remove'></form></td></tr>";
             $sum += $priceforquant;
           }
-          echo "<tr><th>ALLTOGETHER</th><th></th><th></th><th id='left_column'>" . number_format($sum,2) . " €</th></tr>";  // show the sum for the price items in the basket 
+          echo "<tr><th>ALLTOGETHER</th><th></th><th></th><th id='left_column'>" . number_format($sum,2) . " €</th></tr>";  // show the sum for the price items in the basket
         ?>
         <form class="" action="pay.php" method="post">
           <input type="hidden" name="sum" value='<?php echo $sum; ?>'>

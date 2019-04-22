@@ -1,3 +1,12 @@
+<!---------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------->
+<!--                                                                                                            -->
+<!--   Document created by:  Julian Bründl, Léon Dawert, Bedredin Ouelhazi                                      -->
+<!--                                                                                                            -->
+<!--   This document implements the function to log in to the website		                                        -->
+<!--                                                                                                            -->
+<!---------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------->
 <!DOCTYPE html>
 <html lang='en'>
 <?php
@@ -83,7 +92,7 @@
                           <input type='password' name='password' placeholder='Password' autocomplete='off'>
                           <input type='submit' class='button' value='login'>
                         </form>";
-              } else {                                                          // if user is logged in tell him 
+              } else {                                                          // if user is logged in tell him
                 echo "  <form action='/millionAIR/index.php' method='post'>
                           You are already logged in!
                           <input type='submit' class='button' value='continue shopping'>

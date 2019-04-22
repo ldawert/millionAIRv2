@@ -1,3 +1,12 @@
+<!---------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------->
+<!--                                                                                                            -->
+<!--   Document created by:  Julian Bründl, Léon Dawert, Bedredin Ouelhazi                                      -->
+<!--                                                                                                            -->
+<!--   This document implements the function to log in to the website		                                        -->
+<!--                                                                                                            -->
+<!---------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <?php
@@ -26,7 +35,7 @@
           $mysqli->query("SELECT * from position WHERE basketID={$basketID}");  // check if basket is empty
           $empty = $mysqli->affected_rows;
           if ($empty == 0 ) {
-            $mysqli->query("DELETE FROM basket WHERE basketID={$basketID}");    // remove basket from databse and from session 
+            $mysqli->query("DELETE FROM basket WHERE basketID={$basketID}");    // remove basket from databse and from session
             unset($_SESSION['basketID']);
           }
           header ('location:/millionAIR/sites/basket.php');                     // if successfully removed, return to basket
