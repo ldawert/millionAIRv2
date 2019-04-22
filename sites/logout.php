@@ -1,21 +1,34 @@
+<!---------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------->
+<!--                                                                                                            -->
+<!--   Document created by:  Julian Bründl, Léon Dawert, Bedredin Ouelhazi                                      -->
+<!--                                                                                                            -->
+<!--   This document document is displayed when the user has loged out                                          -->
+<!--                                                                                                            -->
+<!---------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title>millionAIR</title>
-    <!-- This website includes -->
-    <!-- External -->
-    <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-    <!-- Internal -->
-    <link href='/millionAIR/css/general.css' media='screen' rel='stylesheet' type='text/css'/>
-    <link href='/millionAIR/css/font.css' media='screen' rel='stylesheet' type='text/css'/>
-    <link href='/millionAIR/css/form.css' media='screen' rel='stylesheet' type='text/css'/>
-    <link href='/millionAIR/css/article.css' media='screen' rel='stylesheet' type='text/css'/>
-    <!-- End websites includes -->
+      <meta charset='utf-8'>
+      <meta name='theme-color' content='#171819'>
+      <title>Web-Shop</title>
+      <link id='favicon' rel='icon' type='' href=''/>
+      <!-- This website includes -->
+      <!-- External -->
+      <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+      <!-- Internal -->
+      <link href='/millionAIR/css/general.css' media='screen' rel='stylesheet' type='text/css'/>
+      <link href='/millionAIR/css/font.css' media='screen' rel='stylesheet' type='text/css'/>
+      <link href='/millionAIR/css/form.css' media='screen' rel='stylesheet' type='text/css'/>
+      <link href='/millionAIR/css/article.css' media='screen' rel='stylesheet' type='text/css'/>
+      <script type='text/javascript' src='/millionAIR/js/menu.js'></script>
+      <!-- End websites includes -->
   </head>
   <body>
     <?php
-      session_start();                                                          // pick up session and destroy it. than start a fresh session
+      session_start();
       session_destroy();
       session_start();
     ?>
@@ -72,7 +85,7 @@
     <div class='spacer_top'></div>
     <div id='content'>
       <div class='login_form'>
-          <form action="/millionAIR/index.php" method="post">                   <!-- Notify the user that he has logged out -->
+          <form action="/millionAIR/index.php" method="post">
             You have successfully logged out.<br>
             <input type="submit" class="button" value="Back to shop">
           </form>
