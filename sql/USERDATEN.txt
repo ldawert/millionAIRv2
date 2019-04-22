@@ -1,0 +1,2 @@
+Um sich als admin in den Shop einzuloggen entweder einen User mit admin-Flag in der DB erstellen oder
+admin mit Passwort = password benutzen.
