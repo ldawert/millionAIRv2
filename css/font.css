@@ -1,7 +1,7 @@
 /*****************************************************************************************************************\
 *******************************************************************************************************************
 ***
-***    Document created by:  Julian Bründl, Léon Dawert, Bedridin Ouelhazi
+***    Document created by:  Julian Bründl, Léon Dawert, Bedredin Ouelhazi
 ***    
 ***    This document defines the layout of all font/text components
 ***
@@ -69,15 +69,6 @@ a:hover {
   margin-bottom: 4px;
   padding-bottom: 4px;
   border-bottom: 2px solid var(--color-bg);
-}
-
-/*  Styling for the title of article prices  */
-.article_price {
-  float:left;
-  width: 50%;
-  font-size: 24px;
-  text-align: center;
-  border-right: 2px solid var(--color-bg);
 }
 /**                                    **\
 \****************************************/
