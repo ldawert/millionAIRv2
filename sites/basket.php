@@ -1,40 +1,26 @@
-<!---------------------------------------------------------------------------------------------------------------->
-<!---------------------------------------------------------------------------------------------------------------->
-<!--                                                                                                            -->
-<!--   Document created by:  Julian Bründl, Léon Dawert, Bedredin Ouelhazi                                      -->
-<!--                                                                                                            -->
-<!--   This document displays a site for the user to view thier basket                                          -->
-<!--                                                                                                            -->
-<!---------------------------------------------------------------------------------------------------------------->
-<!---------------------------------------------------------------------------------------------------------------->
 <!DOCTYPE html>
 <html lang='en'>
-  <?php
-    session_start();
-  ?>
+<?php
+  session_start();
+?>
   <head>
       <meta charset='utf-8'>
       <meta name='theme-color' content='#171819'>
-      <title>Web-Shop</title>
+      <title>millionAIR</title>
       <link id='favicon' rel='icon' type='' href=''/>
       <!-- This website includes -->
       <!-- External -->
       <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
       <!-- Internal -->
-      <link href='/millionAIR/css/general.css' media='screen' rel='stylesheet' type='text/css'/>
-      <link href='/millionAIR/css/font.css' media='screen' rel='stylesheet' type='text/css'/>
-      <link href='/millionAIR/css/form.css' media='screen' rel='stylesheet' type='text/css'/>
-      <link href='/millionAIR/css/article.css' media='screen' rel='stylesheet' type='text/css'/>
-      <script type='text/javascript' src='/millionAIR/js/menu.js'></script>
+      <link href='../css/general.css' media='screen' rel='stylesheet' type='text/css'/>
+      <link href='../css/font.css' media='screen' rel='stylesheet' type='text/css'/>
+      <link href='../css/form.css' media='screen' rel='stylesheet' type='text/css'/>
+      <link href='../css/article.css' media='screen' rel='stylesheet' type='text/css'/>
       <!-- End websites includes -->
   </head>
   <body>
     <div id='titleBar'>
-      <div id='title_menu_button' onclick='toggleMenu()'>
-        <i class="fas fa-caret-right button_menu"></i>
-      </div>
-      <div id='title_categories' class='hide'>
+      <div id='title_categories'>
         <form class="title-categories" action="/millionAIR/index.php?category=Mods" method="post">
           <input class='button button_title' type="submit" name="Mods" value="Mods">
         </form>
@@ -85,7 +71,7 @@
     </div>
     <div class='spacer_top'></div>
     <?php
-      if (empty($_SESSION['basketID'])) {
+      if (empty($_SESSION['basketID'])) {                                       // if user has no basket take him to empy basket page
         header ('location:/millionAIR/sites/empty_basket.php');
       }
     ?>
@@ -98,24 +84,26 @@
           <th id='left_column'>Price for quantity</th>
         </tr>
         <?php
-          $mysqli = new mysqli("localhost", "root","", "millionAIR");//connect to database
+          $mysqli = new mysqli("localhost", "root","", "millionAIR");           //connect to database
     			if($mysqli->connect_error) {
     				echo ("Fehler ". mysqli_connect_error());
     				exit();
     			}
           $basket = $mysqli->query("SELECT i.item, i.price, i.itemID, p.quantity FROM position p JOIN item i ON p.itemID = i.itemID WHERE p.basketID={$_SESSION['basketID']}");
-          $sum = 0;
-          while ($item = $basket->fetch_array()) {
+          $sum = 0;                                                             // select all items from the current basket and initialize a sum
+          while ($item = $basket->fetch_array()) {                              // iterate over every item and show it with its price and quantity.
             $itemID = $item['itemID'];
             $priceforquant = $item['quantity'] * $item['price'];
+            $quant = $item['quantity'];
             echo "<tr><td>" . $item['item'] . "</td><td id='left_column'>" . $item['quantity'] . "</td><td id='left_column'>"
             . number_format($item['price'],2) . " €</td><td id='left_column'>" . number_format($priceforquant,2) . " €</td>
             <td id='left_column'><form action='/millionAIR/sites/removeitem.php' method='post'>
             <input class='' type='hidden' name='itemID' value='$itemID'>
+            <input class='' type='hidden' name='quant' value='$quant'>
             <input class='button button_article button_remove' type='submit' name='submit' value='Remove'></form></td></tr>";
             $sum += $priceforquant;
           }
-          echo "<tr><th>ALLTOGETHER</th><th></th><th></th><th id='left_column'>" . number_format($sum,2) . " €</th></tr>";
+          echo "<tr><th>ALLTOGETHER</th><th></th><th></th><th id='left_column'>" . number_format($sum,2) . " €</th></tr>";  // show the sum for the price items in the basket 
         ?>
         <form class="" action="pay.php" method="post">
           <input type="hidden" name="sum" value='<?php echo $sum; ?>'>
