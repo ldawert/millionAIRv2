@@ -1,0 +1,46 @@
+/*****************************************************************************************************************\
+*******************************************************************************************************************
+***
+***    Document created by:  Julian Bründl, Léon Dawert, Bedridin Ouelhazi
+***
+***    This document defines the layout of all article components
+***
+*******************************************************************************************************************
+\*****************************************************************************************************************/
+/*  Styling for the article content div  */
+.article {
+  display: inline-block;
+  z-index: 2;
+  background: var(--color-main);
+  color: inherit;
+  height: 300px;
+  width: calc(25% - (4 * 10px));
+  padding: 10px;
+  border: 8px solid var(--color-bg);
+}
+
+/*  Styling for the article title  */
+.article_tile {
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--color-bg);
+  color: var(--color-text-content);
+}
+
+.article_content {
+
+}
+
+/*  Styling for the article image  */
+.article_image {
+  width: 100%;
+  margin-top: 8px;
+  height: 180px;
+}
+
+/*  Styling for the bottom part of the article  */
+.article_bottom {
+  height: 30px;
+}

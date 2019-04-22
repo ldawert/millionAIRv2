@@ -1,0 +1,219 @@
+/*****************************************************************************************************************\
+*******************************************************************************************************************
+***
+***    Document created by:  Julian Bründl, Léon Dawert, Bedridin Ouelhazi
+***    
+***    This document defines the layout of all font/text components
+***
+*******************************************************************************************************************
+\*****************************************************************************************************************/
+/***************************************************************\
+ *      Input: text, number, password
+\***************************************************************/
+input[type='text'], input[type='number'], input[type='password'] {
+    display: relative;
+    color: var(--color-text-link);
+    color: var(--color-text-inactive);
+    background: var(--color-main);
+    height: var(--hight-searchBox);
+    width: 100%;
+    margin: 10px auto;
+    padding-left: 1ch;
+    padding-right: 1ch;
+    font: inherit;
+    text-align: center;
+    outline: none;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    box-shadow: 0 0 13px 0 var(--color-shadow5);
+    transition: color 500ms, border 300ms, box-shadow 500ms, border-radius 300ms;
+}
+
+input[type='text']:hover, input[type='number']:hover, input[type='password']:hover {
+    border: 2px solid transparent;
+    box-shadow: 0 0 13px 0 var(--color-shadow6);
+    transition: border 300ms, box-shadow 500ms;
+
+}
+
+input[type='text']:active, input[type='number']:active, input[type='password']:active {
+    /*outline: none;*/
+    border: 2px solid var(--color-selection);
+}
+
+input[type='text']:focus, input[type='number']:focus, input[type='password']:focus {
+    outline: none;
+    color: var(--color-text-content);
+    border: 2px solid var(--color-selection);
+    /*border-radius: 6px;*/
+    box-shadow: 0 0 25px 0 var(--color-shadow75);
+    transition: color 300ms, border 300ms, box-shadow 500ms, border-radius 300ms;
+}
+/***************************************************************\
+ *      Button Styling
+\***************************************************************/
+.button {
+    position: relative;
+    background: var(--color-main);
+    color: var(--color-text-content);
+    color: var(--color-text-inactive);
+    padding: 0 10px;
+    margin: 10px auto;
+    font-size: 2em;
+    text-align: center;
+    border: 2px solid transparent;
+    -webkit-font-smoothing: antialiased;
+    box-shadow: 0 0 13px 0 var(--color-shadow5);
+    transition: background 300ms, color 300ms, border 300ms, box-shadow 500ms, border-radius 300ms;
+}
+
+.button:hover {
+    background: var(--color-main);
+    color: var(--color-selection);
+    border: 2px solid var(--color-selection);
+    /*border-radius: 6px;*/
+    box-shadow: 0 0 13px 0 var(--color-shadow6);
+    transition: background 300ms, color 300ms, border 300ms, box-shadow 500ms, border-radius 300ms;
+}
+
+.button:active {
+    outline: none;
+    background: var(--color-selection);
+    color: var(--color-shadow75);
+    color: var(--color-main);
+    border: 2px solid var(--color-selection);
+    /*border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;*/
+    box-shadow: 0 0 25px 0 var(--color-shadow75);
+    transition: background 300ms, color 300ms, border 300ms, box-shadow 500ms, border-radius 300ms;
+}
+
+.button:focus {
+    outline: none;
+}
+/***************************************************************\
+ *      Specific Form Styling
+\***************************************************************/
+/**************************************\
+\** Define styling of the search bar **/
+#searchSpace{
+    height: var(--height-searchBox);
+    z-index: 5;
+    margin-top: 35px;
+}
+
+#searchBoxPreText {
+    position: absolute;
+    display: inline;
+    margin: 12px 12px;
+    padding-bottom: 0;
+    user-select: none;
+}
+
+#searchInput {
+    display: inline;
+    background: var(--color-main);
+    color: var(--color-text-link);
+    outline: none;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    font: inherit;
+    text-align: left;
+    height: var(--height-searchBox);
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom 0px;
+    padding-left: 9ch;
+    padding-right: 1ch;
+    transition: color 500ms, border 300ms, box-shadow 500ms, border-radius 300ms;
+}
+
+#searchInput:focus {
+    color: var(--color-text-content);
+    border: 2px solid var(--color-selection);
+    transition: color 300ms, border 300ms, box-shadow 500ms, border-radius 300ms;
+}
+/**                                  **\
+\**************************************/
+
+/**************************************\
+\** Define styling of the login form **/
+.login_form {
+    position: relative;
+    color: inherit;
+    background: transparent;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    height: auto;
+    width: 36ch;
+    max-width: calc(100% - var(--label-width));
+    max-width: 100ch;
+    padding: var(--padding-category);
+    margin: var(--margin-category) auto;
+    overflow: hidden;
+}
+/**                                  **\
+\**************************************/
+
+/************************************\
+\** Define styling of profile form **/
+.profile_form {
+    position: relative;
+    color: inherit;
+    background: transparent;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    height: auto;
+    width: 36ch;
+    max-width: calc(100% - var(--label-width));
+    max-width: 100ch;
+    padding: var(--padding-category);
+    margin: var(--margin-category) auto;
+    overflow: hidden;
+    
+}
+/**                                **\
+\************************************/
+
+/**************************************\
+\** Define styling of the admin form **/
+.admin-area {
+  width: 300px;
+}
+
+.admin-item {
+  text-align: center;
+  margin: auto;
+}
+
+.admin-stock {
+  float: left;
+}
+/**                                  **\
+\**************************************/
+
+/****************************************\
+\** Define styling of specific buttons **/
+.button_title {
+    font-size: 18px;
+    color: var(--color-text-content);
+}
+
+.button_article_align {
+}
+
+.button_article {
+    float: right;
+    color: var(--color-text-content);
+    font-size: 18px;
+    right: 44px;
+    bottom: 7px;
+}
+
+.button_remove {
+  margin-left: 30px;
+  bottom: -1px;
+}
+/**                                    **\
+\****************************************/

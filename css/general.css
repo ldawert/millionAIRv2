@@ -1,0 +1,217 @@
+/*****************************************************************************************************************\
+*******************************************************************************************************************
+***
+***    Document created by:  Julian Bründl, Léon Dawert, Bedridin Ouelhazi
+***    
+***    This document defines the general layout of all basic components
+***
+*******************************************************************************************************************
+\*****************************************************************************************************************/
+/***************************************************************\
+ *      General Styling
+\***************************************************************/
+html {
+    /*  Variables to make changes to the website more easily  */
+    --color-bg:               #171819;
+    --color-main:             #262830;
+    --color-sb-inactive:      #212328;
+    --color-selection:        #ffecba;
+
+    --color-text-link:        #F4E7D3;/*#8a8ea3;*/
+    --color-text-inactive:    #747470;
+    --color-text-content:     #F4E7D3;
+    --color-text-pre01:       #FFA06F;
+    --color-text-pre02:       #F38181;
+    --color-text-pre03:       #c5f0a4;
+
+    --color-shadow5:          rgba(0,0,0,.5);
+    --color-shadow6:          rgba(0,0,0,.6);
+    --color-shadow75:         rgba(0,0,0,.75);
+
+    --height-searchBox:       48px;
+    --width-label:            10ch;
+    --width-category:         40ch;
+    --width-articleSpacing:   2px;
+    --padding-category:       10px;
+    --margin-category:        5px;
+    --font-size-normal:       16px;
+
+    /*  Styling of the html  */
+    min-height:               100vh;
+    background:               var(--color-bg);
+    font-family:              'Varela Round', sans-serif;
+    font-size:                var(--font-size-normal);
+    -webkit-font-smoothing:   antialiased;
+    -moz-osx-font-smoothing:  grayscale;
+}
+
+/*  Styling for the body tag  */
+body {
+    margin: 10px 10px 0;
+    color: white;
+}
+
+/*  Styling for the spacer to verticaly spreat the content  */
+.spacer_top {
+    height: 150px;
+}
+
+/***************************************************************\
+ *      Rules
+\***************************************************************/
+/**************************************\
+\** Define styling of the scroll bar **/
+/*  Width of Scrollbar  */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/*  Track  */
+::-webkit-scrollbar-track {
+    background: var(--color-bg);
+}
+
+/*  Handle  */
+::-webkit-scrollbar-thumb {
+    background: var(--color-main);
+}
+
+/*  Inactive Handle  */
+::-webkit-scrollbar-thumb:window-inactive {
+    background: var(--color-sb-inactive);
+}
+/**                                  **\
+\**************************************/
+
+/*  Styling of the input placeholders  */
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    var(--color-text-inactive);
+}
+/***************************************************************\
+ *      Header Styling
+\***************************************************************/
+header {
+    position: relative;
+    background: transparent;
+    color: var(--color-text-content);
+    max-width: calc(120ch + 12px + (2 * var(--padding-category)));
+    height: auto;
+    margin: 0 auto 10px;
+    box-shadow: 0 0 20px 0 var(--color-shadow5);
+    transition: box-shadow 500ms ease;
+}
+
+header:hover {
+    box-shadow: 0 0 25px 0 var(--color-shadow75);
+    transition: box-shadow 500ms ease;
+}
+
+/*************************************\
+\** Define styling of the title bar **/
+/*  Styling of the titble bar  */
+#titleBar {
+    position: relative;
+    z-index: 10;
+    background: var(--color-main);
+    color: var(--color-text-content);
+    /*max-width: calc(120ch + 12px + (2 * var(--padding-category)));*/
+    height: calc(1.4 * var(--height-searchBox));
+    width: 100%;
+    margin: 0 auto 10px;
+    font-size: 36px;
+    line-height: calc(1.4 * var(--height-searchBox) + 4px);
+    text-align: center;
+    box-shadow: 0 0 20px 0 var(--color-shadow5);
+    transition: box-shadow 500ms ease;
+}
+
+/*  Styling for the title bar categories  */
+#title_categories {
+  position: absolute;
+  top: -8px;
+  left: 10px;
+}
+
+/*  Styling for the title bar categories  */
+.title-categories {
+  float: left;
+}
+
+/*   Styling for the title categories but no the first child  */
+.title-categories:not(:first-child) {
+  margin-left: 10px;
+}
+
+/*  Styling for the title bar profile  */
+#title_profile {
+    position: absolute;
+    top: -8px;
+    right: 10px;
+}
+
+/* Styling for the title bar profile alignment  */
+.title_profile_align {
+  float: right;
+}
+
+/* Styling for the title bar profile alignment but no the first child */
+.title_profile_align:not(:first-child) {
+  margin-right: 10px;
+}
+/**                                 **\
+\*************************************/
+/***************************************************************\
+ *      Pages Styling
+\***************************************************************/
+/*  Styling for the content div  */
+#content {
+    position: relative;
+    color: var(--color-text-content);
+    background: transparent;
+    /*max-width: calc(120ch + 32px);*/
+    height: 400px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 22px;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/*  Styling for the preview class  */
+.preview {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  width: 100%;
+  margin-top: 30px;
+}
+
+/*  Styling for the basket div  */
+#basket {
+  text-align: left;
+  background: var(--color-main);
+}
+
+/*  Styling for the left basket column  */
+#left_column {
+  padding-left: 30px;
+  text-align: right;
+}
+
+/*  Styling for the right align picture in the basket  */
+.pic_right {
+  float: right;
+  position: relative;
+}
+
+/*  Styling for the product table div  */
+#product_table {
+  text-align: left;
+}
+
+/*  Styling for the product column class in the basket  */
+.product_column {
+  padding-left: 20px;
+  padding-bottom: 10px;
+}

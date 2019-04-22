@@ -1,0 +1,83 @@
+/*****************************************************************************************************************\
+*******************************************************************************************************************
+***
+***    Document created by:  Julian Bründl, Léon Dawert, Bedridin Ouelhazi
+***    
+***    This document defines the layout of all font/text components
+***
+*******************************************************************************************************************
+\*****************************************************************************************************************/
+/* Styling for html-links */
+a {
+    color: var(--color-text-link);
+    /*padding: 0 10px; --hrefs for images made the images to slide off to the right--*/ 
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 400ms;
+}
+
+/* Styling for hovered html-links */
+a:hover {
+    color:var(--color-selection);
+    transition: color 150ms;
+}
+
+/* Make a font bold */
+.font_bold {
+    font-weight: bold;
+}
+
+.font_title {
+}
+
+/******************************************\
+\** Define colors for the seachbar label **/
+/*  Styling for the ~ char  */
+.font_pre01 {
+    color: var(--color-text-pre01);
+}
+
+/*  Styling for the ❯ char  */
+.font_pre02 {
+    color: var(--color-text-pre02);
+}
+
+/*  Styling for the search label  */
+.font_pre03 {
+    color: var(--color-text-pre03);
+}
+/**                                      **\
+\******************************************/
+
+/* Make links not markable */
+.links {
+    user-select: none;
+}
+
+/****************************************\
+\** Define styling for article classes **/
+/*  Styling for the title of articles  */
+.article_tile {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/*  Styling for the title of article descriptions  */
+.article_short_description {
+  height: 40px;
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--color-bg);
+}
+
+/*  Styling for the title of article prices  */
+.article_price {
+  float:left;
+  width: 50%;
+  font-size: 24px;
+  text-align: center;
+  border-right: 2px solid var(--color-bg);
+}
+/**                                    **\
+\****************************************/
