@@ -12,6 +12,11 @@
 <?php
   session_start();
 ?>
+<?php
+  if (empty($_SESSION['basketID'])) {                                       // if user has no basket take him to empy basket page
+    header ('location:/millionAIR/sites/empty_basket.php');
+  }
+?>
   <head>
       <meta charset='utf-8'>
       <meta name='theme-color' content='#171819'>
@@ -26,15 +31,15 @@
       <link href='../css/font.css' media='screen' rel='stylesheet' type='text/css'/>
       <link href='../css/form.css' media='screen' rel='stylesheet' type='text/css'/>
       <link href='../css/article.css' media='screen' rel='stylesheet' type='text/css'/>
-      <script type='text/javascript' src='/millionAIR/js/menu.js'></script>
+      <!-- <script type='text/javascript' src='/millionAIR/js/menu.js'></script> -->
       <!-- End websites includes -->
   </head>
   <body>
     <div id='titleBar'>
-      <div id='title_menu_button' onclick='toggleMenu()'>
+      <!-- <div id='title_menu_button' onclick='toggleMenu()'>
         <i class="fas fa-caret-right button_menu"></i>
-      </div>
-      <div id='title_categories' class='hide'>
+      </div> -->
+      <div id='title_categories'>
         <form class="title-categories" action="/millionAIR/index.php?category=Mods" method="post">
           <input class='button button_title' type="submit" name="Mods" value="Mods">
         </form>
@@ -84,11 +89,6 @@
       </div>
     </div>
     <div class='spacer_top'></div>
-    <?php
-      if (empty($_SESSION['basketID'])) {                                       // if user has no basket take him to empy basket page
-        header ('location:/millionAIR/sites/empty_basket.php');
-      }
-    ?>
     <div id='content'>
       <table id='basket' border="0">
         <tr>
