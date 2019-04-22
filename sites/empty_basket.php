@@ -31,7 +31,10 @@
     </head>
     <body>
       <div id='titleBar'>
-        <div id='title_categories'>
+        <div id='title_menu_button' onclick='toggleMenu()'>
+          <i class="fas fa-caret-right button_menu"></i>
+        </div>
+        <div id='title_categories'  class='hide'>
           <form class="title-categories" action="/millionAIR/index.php?category=Mods" method="post">
             <input class='button button_title' type="submit" name="Mods" value="Mods">
           </form>
