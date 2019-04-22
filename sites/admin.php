@@ -18,16 +18,21 @@
     <!-- This website includes -->
     <!-- External -->
     <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- Internal -->
     <link href='/millionAIR/css/general.css' media='screen' rel='stylesheet' type='text/css'/>
     <link href='/millionAIR/css/font.css' media='screen' rel='stylesheet' type='text/css'/>
     <link href='/millionAIR/css/form.css' media='screen' rel='stylesheet' type='text/css'/>
     <link href='/millionAIR/css/article.css' media='screen' rel='stylesheet' type='text/css'/>
+    <script type='text/javascript' src='/millionAIR/js/menu.js'></script>
     <!-- End websites includes -->
   </head>
   <body>
     <div id='titleBar'>
-      <div id='title_categories'>
+      <div id='title_menu_button' onclick='toggleMenu()'>
+        <i class="fas fa-caret-right button_menu"></i>
+      </div>
+      <div id='title_categories' class='hide'>
         <form class="title-categories" action="/millionAIR/index.php?category=Mods" method="post">
           <input class='button button_title' type="submit" name="Mods" value="Mods">
         </form>
