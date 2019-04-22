@@ -1,8 +1,8 @@
 /*****************************************************************************************************************\
 *******************************************************************************************************************
 ***
-***    Document created by:  Julian Bründl, Léon Dawert, Bedridin Ouelhazi
-***    
+***    Document created by:  Julian Bründl, Léon Dawert, Bedredin Ouelhazi
+***
 ***    This document defines the layout of all font/text components
 ***
 *******************************************************************************************************************
@@ -10,7 +10,7 @@
 /* Styling for html-links */
 a {
     color: var(--color-text-link);
-    /*padding: 0 10px; --hrefs for images made the images to slide off to the right--*/ 
+    /*padding: 0 10px; --hrefs for images made the images to slide off to the right--*/
     text-decoration: none;
     white-space: nowrap;
     transition: color 400ms;
@@ -69,15 +69,6 @@ a:hover {
   margin-bottom: 4px;
   padding-bottom: 4px;
   border-bottom: 2px solid var(--color-bg);
-}
-
-/*  Styling for the title of article prices  */
-.article_price {
-  float:left;
-  width: 50%;
-  font-size: 24px;
-  text-align: center;
-  border-right: 2px solid var(--color-bg);
 }
 /**                                    **\
 \****************************************/
