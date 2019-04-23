@@ -59,16 +59,19 @@
             if (empty($_SESSION['userID'])) {
               echo "  <form class='title_profile_align' action='/millionAIR/sites/login.php' method='post'>
                         <input class='button button_title' type='submit' name='login' value='Login'>
+                      </form>
+                      <form class='title_profile_align' action='/millionAIR/sites/register.php' method='post'>
+                        <input class='button button_title' type='submit' name='register' value='Register'>
                       </form>";
             } else {
               echo "  <form class='title_profile_align' action='/millionAIR/sites/logout.php' method='post'>
                         <input class='button button_title' type='submit' name='logout' value='Logout'>
+                      </form>
+                      <form class='title_profile_align' action='/millionAIR/sites/profile.php' method='post'>
+                        <input class='button button_title' type='submit' name='profile' value='Profile'>
                       </form>";
             }
           ?>
-          <form class="title_profile_align" action="/millionAIR/sites/register.php" method="post">
-            <input class='button button_title' type="submit" name="register" value="Register">
-          </form>
           <form class="title_profile_align" action="/millionAIR/sites/basket.php" method="post">
             <input class='button button_title' type="submit" name="basket" value="Basket">
           </form>
