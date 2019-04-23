@@ -1,2 +1,8 @@
 Um sich als admin in den Shop einzuloggen entweder einen User mit admin-Flag in der DB erstellen oder
 admin mit Passwort = password benutzen.
+
+Die Datei millionAIR_4.4.2019.sql (Datenbank-Dump) muss im phpmyadmin im XAMPP auf localhost importiert werden.
+Diese Datenbank MUSS millionAIR heißen.
+
+Normale User können mit Registrieren erstellt werden.
+Der Username MUSS eine E-Mail-Adresse sein.
