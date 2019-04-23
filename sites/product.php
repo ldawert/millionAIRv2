@@ -3,38 +3,35 @@
 <!--                                                                                                            -->
 <!--   Document created by:  Julian Bründl, Léon Dawert, Bedredin Ouelhazi                                      -->
 <!--                                                                                                            -->
-<!--   This document implements the function to log in to the website		                                        -->
+<!--   This document displays the product page of a selected product                                            -->
 <!--                                                                                                            -->
 <!---------------------------------------------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------------------------------------------->
 <!DOCTYPE html>
 <html lang='en'>
-<?php
-  session_start();
-?>
+  <?php
+    session_start();
+  ?>
   <head>
       <meta charset='utf-8'>
       <meta name='theme-color' content='#171819'>
-      <title>millionAIR</title>
+      <title>Web-Shop</title>
       <link id='favicon' rel='icon' type='' href=''/>
       <!-- This website includes -->
       <!-- External -->
       <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
       <!-- Internal -->
-      <link href='../css/general.css' media='screen' rel='stylesheet' type='text/css'/>
-      <link href='../css/font.css' media='screen' rel='stylesheet' type='text/css'/>
-      <link href='../css/form.css' media='screen' rel='stylesheet' type='text/css'/>
-      <link href='../css/article.css' media='screen' rel='stylesheet' type='text/css'/>
+      <link href='/millionAIR/css/general.css' media='screen' rel='stylesheet' type='text/css'/>
+      <link href='/millionAIR/css/font.css' media='screen' rel='stylesheet' type='text/css'/>
+      <link href='/millionAIR/css/form.css' media='screen' rel='stylesheet' type='text/css'/>
+      <link href='/millionAIR/css/article.css' media='screen' rel='stylesheet' type='text/css'/>
       <script type='text/javascript' src='/millionAIR/js/menu.js'></script>
       <!-- End websites includes -->
   </head>
   <body>
     <div id='titleBar'>
-      <div id='title_menu_button' onclick='toggleMenu()'>
-        <i class="fas fa-caret-right button_menu"></i>
-      </div>
-      <div id='title_categories' class='hide'>
+      <div id='title_categories'>
         <form class="title-categories" action="/millionAIR/index.php?category=Mods" method="post">
           <input class='button button_title' type="submit" name="Mods" value="Mods">
         </form>
@@ -61,19 +58,16 @@
             if (empty($_SESSION['userID'])) {
               echo "  <form class='title_profile_align' action='/millionAIR/sites/login.php' method='post'>
                         <input class='button button_title' type='submit' name='login' value='Login'>
-                      </form>
-                      <form class='title_profile_align' action='/millionAIR/sites/register.php' method='post'>
-                        <input class='button button_title' type='submit' name='register' value='Register'>
                       </form>";
             } else {
               echo "  <form class='title_profile_align' action='/millionAIR/sites/logout.php' method='post'>
                         <input class='button button_title' type='submit' name='logout' value='Logout'>
-                      </form>
-                      <form class='title_profile_align' action='/millionAIR/sites/profile.php' method='post'>
-                        <input class='button button_title' type='submit' name='profile' value='Profile'>
                       </form>";
             }
           ?>
+          <form class="title_profile_align" action="/millionAIR/sites/register.php" method="post">
+            <input class='button button_title' type="submit" name="register" value="Register">
+          </form>
           <form class="title_profile_align" action="/millionAIR/sites/basket.php" method="post">
             <input class='button button_title' type="submit" name="basket" value="Basket">
           </form>
@@ -86,46 +80,53 @@
           ?>
       </div>
     </div>
-    <div class='spacer_top'></div>
-    <?php
-      $ID = $_GET['product'];                                                   // get information on which product to show
-    ?>
-    <img class="pic_right" src="/millionAIR/img/<?php echo $ID; ?>.png"></img>
-    <div id='content'>
-    <div class="login_form">
+    <!--<div class='spacer_top'></div>-->
+      <div id='content_product'>
         <?php
-          $mysqli = new mysqli("localhost", "root","", "millionAIR");           //connect to database
-    			if($mysqli->connect_error) {
-    				echo ("Fehler ". mysqli_connect_error());
-    				exit();
-    			}
-          $products = $mysqli->query("SELECT * FROM item WHERE itemID={$ID}");  // select data for product to show from database
-          $product = $products->fetch_array();
-          $item = $product['item'];
-          $price = number_format($product['price'],2);
-          $description = $product['description'];
-          $maxquant = $product['stock'];
-          echo "<table id='product_table'>
-                  <tr>
-                    <th class='product_column'>Poduct</th>
-                    <td class='product_column'>$item</td>
-                  </tr>
-                  <tr>
-                    <th class='product_column'>Price</th>
-                    <td class='product_column'>$price €</td>
-                  </tr>
-                  <tr>
-                    <th class='product_column'>Description</th>
-                    <td class='product_column'>$description</td>
-                  </tr>
-                </table>
-                <form class='button_article_align' action='/millionAIR/sites/addtobasket.php?tobasket=$ID&return=/millionAIR/sites/product.php?product=$ID' method='post'>
-                    <span class='article_price'><input type='number' name='quantity' placeholder='In stock: $maxquant'></span>
-                    <input class='button button_article' type='submit' name='submit' value='Buy'>
-                </form>";                                                       // echo product information. Let user select quantity to buy.
-
+          $ID = $_GET['product'];
         ?>
-    </div>
+        <img class="pic_right" src="/millionAIR/img/<?php echo $ID; ?>.png"></img>
+        <div id='content'>
+          <div class="login_form">
+              <?php
+                $mysqli = new mysqli("localhost", "root","", "millionAIR");//connect to database
+                if($mysqli->connect_error) {
+                  echo ("Fehler ". mysqli_connect_error());
+                  exit();
+                }
+                $products = $mysqli->query("SELECT * FROM item WHERE itemID={$ID}");
+                $product = $products->fetch_array();
+                $item = $product['item'];
+                $price = number_format($product['price'],2);
+                $description = $product['description'];
+                $maxquant = $product['stock'];
+                echo "<div class='product_title'>
+                        $item
+                      </div>
+                      <table id='product_table'>
+                        <!--<tr class='product_title'>
+                          <th class='product_column'>Poduct</th>
+                          <td class='product_column'>$item</td>
+                        </tr>-->
+                        <tr class='product_price'>
+                          <th class='product_column'>Price</th>
+                          <td class='product_column'>$price €</td>
+                        </tr>
+                        <tr class='product_description'>
+                          <th class='product_column'>Description</th>
+                          <td class='product_column'>$description</td>
+                        </tr>
+                      </table>
+                      <div class='product_bottom'>
+                        <form class='button_article_align' action='/millionAIR/sites/addtobasket.php?tobasket=$ID&return=/millionAIR/sites/product.php?product=$ID' method='post'>
+                            <span class='text_product_amount'><input type='number' name='quantity' value='1'></span>
+                            <input class='button button_product' type='submit' name='submit' value='Buy'>
+                        </form>
+                      </div>";
+
+          ?>
+        </div>
+      </div>
     </div>
   </body>
 </html>
