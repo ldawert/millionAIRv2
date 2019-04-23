@@ -31,15 +31,15 @@
       <link href='../css/font.css' media='screen' rel='stylesheet' type='text/css'/>
       <link href='../css/form.css' media='screen' rel='stylesheet' type='text/css'/>
       <link href='../css/article.css' media='screen' rel='stylesheet' type='text/css'/>
-      <!-- <script type='text/javascript' src='/millionAIR/js/menu.js'></script> -->
+      <script type='text/javascript' src='/millionAIR/js/menu.js'></script>
       <!-- End websites includes -->
   </head>
   <body>
     <div id='titleBar'>
-      <!-- <div id='title_menu_button' onclick='toggleMenu()'>
+      <div id='title_menu_button' onclick='toggleMenu()'>
         <i class="fas fa-caret-right button_menu"></i>
-      </div> -->
-      <div id='title_categories'>
+      </div>
+      <div id='title_categories' class='hide'>
         <form class="title-categories" action="/millionAIR/index.php?category=Mods" method="post">
           <input class='button button_title' type="submit" name="Mods" value="Mods">
         </form>
@@ -66,16 +66,19 @@
             if (empty($_SESSION['userID'])) {
               echo "  <form class='title_profile_align' action='/millionAIR/sites/login.php' method='post'>
                         <input class='button button_title' type='submit' name='login' value='Login'>
+                      </form>
+                      <form class='title_profile_align' action='/millionAIR/sites/register.php' method='post'>
+                        <input class='button button_title' type='submit' name='register' value='Register'>
                       </form>";
             } else {
               echo "  <form class='title_profile_align' action='/millionAIR/sites/logout.php' method='post'>
                         <input class='button button_title' type='submit' name='logout' value='Logout'>
+                      </form>
+                      <form class='title_profile_align' action='/millionAIR/sites/profile.php' method='post'>
+                        <input class='button button_title' type='submit' name='profile' value='Profile'>
                       </form>";
             }
           ?>
-          <form class="title_profile_align" action="/millionAIR/sites/register.php" method="post">
-            <input class='button button_title' type="submit" name="register" value="Register">
-          </form>
           <form class="title_profile_align" action="/millionAIR/sites/basket.php" method="post">
             <input class='button button_title' type="submit" name="basket" value="Basket">
           </form>
